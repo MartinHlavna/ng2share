@@ -37,6 +37,8 @@ export class ShareContainerComponent implements OnInit{
   // So in case you need this the input should be like the following object (you can omitt some fields)
   // {title:'my title', description:'my desc',img:' an image', via:'Ced_VDB', hashtags:'someHashTag'}
   @Input() properties:Properties = {};
+
+  @Input('url') urlOverride?: string;
   // horizontal layout or vertical layout (_accessed via getter & setter)
   _direction:string = 'horizontal';
   // state of the secondary platform expandable pannel

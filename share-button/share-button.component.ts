@@ -27,7 +27,9 @@ export class ShareButtonComponent implements OnInit{
   @Input() addedText:string;
   @Input() direction:string = 'horizontal';
   @Input() properties:Properties;
+  @Input('url') urlOverride?: string;
   url:string;
+
 
   constructor(){
 
@@ -44,7 +46,11 @@ export class ShareButtonComponent implements OnInit{
   }
 
   constructUrl(){
-    this.url = this.platform.url + this.properties.url;
+    if(this.urlOverride != null ){
+      this.url = this.urlOverride;
+    } else {
+      this.url = this.platform.url + this.properties.url;
+    }
     if(this.platform.properties){
         for(let key in this.platform.properties){
           // if the property has been found.
